@@ -1,8 +1,23 @@
-import React from 'react'
 
-const DashboardLayout = () => {
+import React, { ReactNode } from 'react'
+import { Sidebar } from './_components/sidebar'
+import Navbar from './_components/navbar'
+
+const DashboardLayout = (
+  {children}:{children:ReactNode}
+) => {
   return (
-    <div>DashboardLayout</div>
+    <div className='h-full '>
+      <div className='h-[88px] md:pl-56 fixed inset-y-0 w-full z-50'>
+          <Navbar />
+      </div>
+      <div className='hidden md:flex h-full w-56 flex-col fixed z-50'>
+          <Sidebar />
+      </div>
+      <main className='md:pl-56 pt-[88px] h-full'>
+        {children}
+      </main>
+    </div>
   )
 }
 
